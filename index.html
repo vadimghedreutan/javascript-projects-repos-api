@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/style.css" rel="stylesheet">
+    <title>Github Repos API</title>
+</head>
+
+<body>
+    <header class="bg-gray-700 w-full">
+        <div class="p-6">
+            <h1 class="font-bold">Github Repos API</h1>
+        </div>
+    </header>
+    <main class="p-6 sm:max-w-screen-xl mx-auto">
+        <div>
+            <form class="relative" id="repos-form">
+                <svg width="20" height="20" fill="currentColor"
+                    class="absolute left-3 top-1/2 -mt-2.5 text-slate-400 pointer-events-none group-focus-within:text-blue-500"
+                    aria-hidden="true">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" />
+                </svg>
+
+                <input
+                    class="bg-gray-700 focus:ring-0 focus:outline-none appearance-none w-full text-sm leading-6 text-gray-50 placeholder-gray-200 rounded-md py-2 pl-10 shadow-sm"
+                    type="text" id="github-username" aria-label="Filter repositories"
+                    placeholder="Filter repositories...">
+                <button type="submit" id="get-repos"
+                    class="absolute right-0 top-0  bg-gray-700 text-sm leading-6 rounded-md py-2 px-4">
+                    Get repos
+                </button>
+
+            </form>
+        </div>
+
+        <div class="py-8">
+            <ul id="repos-list" class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"></ul>
+        </div>
+    </main>
+    <footer></footer>
+</body>
+<script type="module" src="index.js"></script>
+
+</html>

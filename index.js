@@ -19,21 +19,20 @@ form.addEventListener("submit", (event) => {
   GithubAPI.get(`users/${removeSpaces(username.value)}/repos`)
     .then((data) => {
       list.innerHTML = "";
-      try {
-        data.forEach((repo) => {
-          list.insertAdjacentHTML(
-            "beforeend",
-            `<li class='bg-gray-700 p-6 rounded-md shadow-sm hover:-translate-y-0.5 transform transition duration-300'>
+      data.forEach((repo) => {
+        list.insertAdjacentHTML(
+          "beforeend",
+          `<li class='bg-gray-700 p-6 rounded-md shadow-sm hover:-translate-y-0.5 transform transition duration-300'>
                     <a href="${repo.html_url}" target="_blank">
                         <h2 class="font-semibold">${repo.full_name}</h2>
                         <p class="text-sm text-gray-400">${repo.description}</p>
                     </a>
                 </li>`
-          );
-        });
-      } catch (error) {
-        console.log(error, "user not found");
-      }
+        );
+      });
+    })
+    .catch(function (error) {
+      console.log("User Not Found!", error);
     })
     .finally(() => {
       stopLoader(button, "Get repos");
